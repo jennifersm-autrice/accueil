@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer S.M</title>
+    <link rel="icon" type="image/png" href="uploads/benedetta.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap"
+          rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(160deg,
+            #d4857a 0%,
+            #c87a7a 18%,
+            #b87888 35%,
+            #9080a0 52%,
+            #6880a8 68%,
+            #3d6090 82%,
+            #1e3d6a 100%);
+            display: flex;
+            justify-content: center;
+            padding: 48px 16px 80px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .avatar-wrap {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #e25655, #baa08f, #6f9286);
+        }
+
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff8f5;
+            letter-spacing: 0.01em;
+            text-align: center;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .bio {
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(255, 240, 232, 0.80);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* ── SOCIAL ICONS ── */
+        .socials {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            color: #fff8f5;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.30);
+            transform: translateY(-2px);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* ── LINKS ── */
+        .section-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 240, 232, 0.70);
+            margin-bottom: 14px;
+            align-self: flex-start;
+            width: 100%;
+        }
+
+        .links-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 10px;
+            padding: 14px 20px;
+            color: #fff8f5;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+            width: 100%;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20);
+        }
+
+        .link-btn .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-btn .icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .link-btn .label {
+            flex: 1;
+        }
+
+        .link-btn .arrow {
+            font-size: 13px;
+            opacity: 0.6;
+            color: rgba(255, 240, 232, 0.8);
+        }
+
+        /* ── BOOK CARD ── */
+        .book-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .book-row {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-img {
+            width: 90px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            object-fit: cover;
+        }
+
+        .book-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 2px;
+        }
+
+        .book-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff8f5;
+            letter-spacing: 0.02em;
+        }
+
+        .format-links {
+            display: flex;
+            gap: 6px;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: opacity 0.15s, transform 0.15s;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .store-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.04em;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="avatar-wrap">
+            <img src="uploads/jennifer.jpg" alt="Jennifer S.M">
+        </div>
+        <div>
+            <div class="name">Jennifer S.M</div>
+            <div class="bio" style="margin-top:6px;">Jeune autrice · 26 ans</div>
+        </div>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div class="socials">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/jennifersmautrice/" class="social-icon" target="_blank"
+           aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+            </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/discover/jennifersoens" class="social-icon" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.15 8.15 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"></path>
+            </svg>
+        </a>
+    </div>
+
+    <!-- LINKS -->
+    <div class="section-label">Retrouvez-moi</div>
+    <div class="links-group">
+        <a href="https://www.instagram.com/jennifersmautrice/" target="_blank" class="link-btn" data-cc-id="cc-3">
+      <span class="icon" style="background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"
+            data-cc-id="cc-4">
+        <svg viewBox="0 0 24 24"><path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+      </span>
+            <span class="label" style="" data-cc-id="cc-2">Instagram</span>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="https://www.tiktok.com/discover/jennifersoens" target="_blank" class="link-btn" data-cc-id="cc-5">
+      <span class="icon" style="background: #010101;">
+        <svg viewBox="0 0 24 24"><path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.95a8.15 8.15 0 004.77 1.52V7.02a4.85 4.85 0 01-1-.33z"></path></svg>
+      </span>
+            <span class="label">TikTok</span>
+            <span class="arrow">›</span>
+        </a>
+    </div>
+
+    <!-- BOOK CARD -->
+    <div class="section-label">Mon livre</div>
+    <div class="book-section">
+        <div class="book-row">
+            <img class="book-img" src="uploads/benedetta.png" alt="Benedetta">
+            <div class="book-info">
+                <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+                    <div class="book-name">Benedetta</div>
+                    <span style="font-family:'Playfair Display',serif; font-style:italic; font-size:11px; color:rgba(255,220,200,0.85); white-space:nowrap;">lettres à part éditions</span>
+                </div>
+                <p style="font-size:12px; line-height:1.6; color:rgba(255,240,232,0.80); margin-top:2px; font-style:italic;">
+                    « Jusqu'où seriez-vous prêt à aller pour protéger ceux que vous aimez&nbsp;? »</p>
+                <div class="format-links" style="margin-top:8px;">
+                    <a href="https://www.lettresapart.fr/product-page/benedetta" target="_blank" class="store-btn lap"
+                       title="Lettres à Part">
+                        <img src="uploads/lettres_a_part.png" alt="Lettres à Part">
+                    </a>
+                    <a href="https://www.amazon.fr/Benedetta-Jennifer-S-M/dp/2494210305" target="_blank"
+                       class="store-btn amazon" title="Amazon">
+                        <img src="uploads/amazon.png" alt="Amazon">
+                    </a>
+                    <a href="https://www.cultura.com/p-benedetta-9782494210301.html" target="_blank"
+                       class="store-btn cultura" title="Cultura">
+                        <img src="uploads/cultura.png" alt="Cultura">
+                    </a>
+                    <a href="https://www.furet.com/livres/benedetta-jennifer-s-m-9782494210301.html" target="_blank"
+                       class="store-btn furet" title="Le Furet du Nord">
+                        <img src="uploads/furet.png" alt="Le Furet du Nord">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer"
+         style="font-family:'DM Sans',sans-serif; font-size:11px; letter-spacing:0.08em; color:rgba(255,255,255,0.30);">
+        © 2026 Jennifer S.M
+    </div>
+</div>
+
+
+</body>
+</html>
